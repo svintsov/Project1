@@ -8,9 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class JDBCTripDao implements TripDao {
 
@@ -25,8 +23,8 @@ public class JDBCTripDao implements TripDao {
     Order order = JDBCOrderDao.extractFromResultSet(rs);
 
     Trip trip = factory.createTrip(order);
-    trip.setId(rs.getInt("id"));
-    trip.setPrice(rs.getLong("price"));
+    trip.setId(rs.getInt("idtrips"));
+    trip.setCost(rs.getLong("cost"));
     return trip;
   }
 

@@ -86,8 +86,8 @@ public class Order {
   @Override
   public String toString() {
     return "Order{" +
-        "transport=" + transport +
-        ", food=" + food +
+        "transport=" + transport.name() +
+        ", food=" + food.name() +
         ", duration=" + duration +
         ", type='" + type + '\'' +
         '}';

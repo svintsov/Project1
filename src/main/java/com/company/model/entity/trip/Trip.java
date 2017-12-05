@@ -4,10 +4,9 @@ public abstract class Trip {
 
   private int id;
   private Order order;
-  private long price;
+  private long cost;
 
-  public Trip(int id, Order order) {
-    this.id=id;
+  public Trip(Order order) {
     this.order = order;
   }
 
@@ -19,19 +18,28 @@ public abstract class Trip {
     this.order = order;
   }
 
-  public long getPrice() {
-    return price;
+  public long getCost() {
+    return cost;
   }
 
   public void setId(int id) {
     this.id = id;
   }
 
-  public void setPrice(long price) {
-    this.price = price;
+  public void setCost(long cost) {
+    this.cost = cost;
   }
 
   public int getId() {
     return id;
+  }
+
+  @Override
+  public String toString() {
+    return "Trip{" +
+        "id=" + id +
+        ", order=" + order +
+        ", cost=" + cost +
+        '}';
   }
 }
