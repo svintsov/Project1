@@ -7,7 +7,6 @@ public class Order {
 
   private Transport transport;
   private Food food;
-  private String price;
   private int duration;
   private String type;
 
@@ -35,10 +34,6 @@ public class Order {
       return this;
     }
 
-    public Builder setPrice(String price) {
-      Order.this.price = price;
-      return this;
-    }
 
     public Builder setDuration(int duration) {
       Order.this.duration = duration;
@@ -71,13 +66,6 @@ public class Order {
     this.food = food;
   }
 
-  public String getPrice() {
-    return price;
-  }
-
-  public void setPrice(String price) {
-    this.price = price;
-  }
 
   public int getDuration() {
     return duration;
@@ -100,7 +88,6 @@ public class Order {
     return "Order{" +
         "transport=" + transport +
         ", food=" + food +
-        ", price='" + price + '\'' +
         ", duration=" + duration +
         ", type='" + type + '\'' +
         '}';
