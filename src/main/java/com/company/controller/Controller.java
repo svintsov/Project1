@@ -13,16 +13,18 @@ public class Controller {
   }
 
   public void processUser() {
-    InputLanguageControl languageControl = new InputLanguageControl();
-
-    System.out.println(getLangInput(InputLanguageControl.NUMBER_OF_COMMANDS));
+    InputControlHolder inputControlHolder = new InputControlHolder(view);
+    inputControlHolder.getLanguageControl().onButtonPressed(
+        getInput(InputLanguageControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_SELECT_LANG));
+    inputControlHolder.getMainControl().onInputPressed(
+        getInput(InputMainControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_MAIN_OPTIONS));
   }
 
-  int getLangInput(int commandsCounter) {
+  int getInput(int commandsCounter, String inputMessage) {
     Scanner scanner = new Scanner(System.in);
     int choice;
     do {
-      choice = inputIntFromScanner(scanner, BundleKeys.INPUT_SELECT_LANG, view);
+      choice = inputIntFromScanner(scanner, inputMessage, view);
     } while (choice >= commandsCounter || choice < 0);
     return choice;
   }
