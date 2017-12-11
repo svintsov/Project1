@@ -6,6 +6,7 @@ public interface DisplayKeys {
   int INPUT_LANG_EN = 0;
 
   int INPUT_MAIN_LIST = 0;
-  int INPUT_MAIN_EXIT = 1;
+  int INPUT_MAIN_SORT_LIST = 1;
+  int INPUT_MAIN_EXIT = 2;
 
 }

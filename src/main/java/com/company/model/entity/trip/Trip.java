@@ -36,6 +36,8 @@ public abstract class Trip {
     return id;
   }
 
+  abstract long generatePriceFromAttributes();
+
   @Override
   public String toString() {
     return "Trip{" +

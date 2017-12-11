@@ -16,8 +16,11 @@ public class Controller {
     InputControlHolder inputControlHolder = new InputControlHolder(view);
     inputControlHolder.getLanguageControl().onButtonPressed(
         getInput(InputLanguageControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_SELECT_LANG));
-    inputControlHolder.getMainControl().onInputPressed(
-        getInput(InputMainControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_MAIN_OPTIONS));
+    while (true) {
+      inputControlHolder.getMainControl().onInputPressed(
+          getInput(InputMainControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_MAIN_OPTIONS));
+    }
+
   }
 
   int getInput(int commandsCounter, String inputMessage) {

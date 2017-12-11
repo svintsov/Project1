@@ -10,13 +10,24 @@ import java.util.List;
 
 public class TripStore {
 
+  private static TripStore tripStore;
   SimpleTripFactory simpleTripFactory;
+  private List<Trip> trips;
 
   public TripStore(SimpleTripFactory simpleTripFactory){
     this.simpleTripFactory = simpleTripFactory;
   }
 
-  public TripStore(){
+  private TripStore() {
+  }
+
+  public static TripStore getInstance() {
+    if (tripStore == null) {
+      return new TripStore();
+    } else {
+      return tripStore;
+    }
+
   }
 
   public Trip orderTrip(Order order){
@@ -26,7 +37,7 @@ public class TripStore {
     return trip;
   }
 
-  public List<Trip> loadTripsFromDB() throws SQLException{
+  public List<Trip> getTrips() throws SQLException {
     DaoFactory factory = DaoFactory.getInstance();
     TripDao dao = factory.createTripDao();
 
