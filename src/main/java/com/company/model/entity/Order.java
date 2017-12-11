@@ -1,7 +1,4 @@
-package com.company.model.entity.trip;
-
-import com.company.model.entity.Food;
-import com.company.model.entity.Transport;
+package com.company.model.entity;
 
 public class Order {
 
@@ -40,9 +37,9 @@ public class Order {
       return this;
     }
 
-    public Builder setType(String type){
+    public Builder setType(String type) {
       Order.this.type = type;
-      return  this;
+      return this;
     }
 
     public Order build() {

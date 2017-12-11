@@ -1,8 +1,8 @@
 package com.company.model.dao.imp;
 
-import com.company.model.SimpleTripFactory;
 import com.company.model.dao.TripDao;
-import com.company.model.entity.trip.Order;
+import com.company.model.entity.Order;
+import com.company.model.entity.trip.SimpleTripFactory;
 import com.company.model.entity.trip.Trip;
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -2,8 +2,8 @@ package com.company.model.dao.imp;
 
 import com.company.model.dao.OrderDao;
 import com.company.model.entity.Food;
+import com.company.model.entity.Order;
 import com.company.model.entity.Transport;
-import com.company.model.entity.trip.Order;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.List;

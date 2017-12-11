@@ -1,11 +1,6 @@
-package com.company.model;
+package com.company.model.entity.trip;
 
-import com.company.model.entity.trip.HealingTrip;
-import com.company.model.entity.trip.Order;
-import com.company.model.entity.trip.RelaxTrip;
-import com.company.model.entity.trip.ShoppingTrip;
-import com.company.model.entity.trip.TouristTrip;
-import com.company.model.entity.trip.Trip;
+import com.company.model.entity.Order;
 
 public class SimpleTripFactory {
 

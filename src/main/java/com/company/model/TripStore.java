@@ -2,7 +2,8 @@ package com.company.model;
 
 import com.company.model.dao.DaoFactory;
 import com.company.model.dao.TripDao;
-import com.company.model.entity.trip.Order;
+import com.company.model.entity.Order;
+import com.company.model.entity.trip.SimpleTripFactory;
 import com.company.model.entity.trip.Trip;
 import java.sql.SQLException;
 import java.util.List;
