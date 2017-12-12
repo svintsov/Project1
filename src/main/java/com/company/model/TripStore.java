@@ -5,7 +5,6 @@ import com.company.model.dao.TripDao;
 import com.company.model.entity.Order;
 import com.company.model.entity.trip.SimpleTripFactory;
 import com.company.model.entity.trip.Trip;
-import java.sql.SQLException;
 import java.util.List;
 
 public class TripStore {
@@ -37,11 +36,18 @@ public class TripStore {
     return trip;
   }
 
-  public List<Trip> getTrips() throws SQLException {
+  public List<Trip> getTrips() {
     DaoFactory factory = DaoFactory.getInstance();
     TripDao dao = factory.createTripDao();
 
     return dao.findAll();
+  }
+
+  public Trip getTripById(int id) {
+    DaoFactory factory = DaoFactory.getInstance();
+    TripDao dao = factory.createTripDao();
+
+    return dao.findById(id);
   }
 
 }

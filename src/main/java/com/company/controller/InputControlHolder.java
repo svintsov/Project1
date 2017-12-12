@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.controller.command.ConsoleShowTripsCommand;
 import com.company.controller.command.ExitCommand;
+import com.company.controller.command.FindTripByIDCommand;
 import com.company.controller.command.LocaliseEngLanCommand;
 import com.company.controller.command.LocaliseUaLanCommand;
 import com.company.controller.command.SortTripsByCostAndShowCommand;
@@ -25,6 +26,8 @@ public class InputControlHolder {
     mainControl.setCommand(DisplayKeys.INPUT_MAIN_EXIT, new ExitCommand());
     mainControl.setCommand(DisplayKeys.INPUT_MAIN_SORT_LIST,
         new SortTripsByCostAndShowCommand(TripStore.getInstance(), view));
+    mainControl.setCommand(DisplayKeys.INPUT_MAIN_FIND_TRIP_BY_ID,
+        new FindTripByIDCommand(TripStore.getInstance(), view));
   }
 
   public InputLanguageControl getLanguageControl() {

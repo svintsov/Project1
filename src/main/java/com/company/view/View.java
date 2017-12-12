@@ -29,4 +29,13 @@ public class View {
     }
   }
 
+  public void printTrip(Trip trip) {
+    if (trip != null) {
+      System.out.println(trip.toString());
+    } else {
+      System.out.println(bundle.getString(BundleKeys.INPUT_WRONG_ID));
+    }
+
+  }
+
 }

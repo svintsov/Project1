@@ -5,7 +5,7 @@ import com.company.controller.command.EmptyCommand;
 
 public class InputMainControl {
 
-  public static final int NUMBER_OF_COMMANDS = 3;
+  public static final int NUMBER_OF_COMMANDS = 4;
   private Command[] commands;
 
   public InputMainControl() {

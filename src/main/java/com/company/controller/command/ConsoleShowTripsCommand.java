@@ -2,7 +2,6 @@ package com.company.controller.command;
 
 import com.company.model.TripStore;
 import com.company.view.View;
-import java.sql.SQLException;
 
 public class ConsoleShowTripsCommand implements Command {
 
@@ -16,10 +15,7 @@ public class ConsoleShowTripsCommand implements Command {
 
   @Override
   public void execute() {
-    try {
-      view.printTripList(tripStore.getTrips());
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
+    view.printTripList(tripStore.getTrips());
+
   }
 }

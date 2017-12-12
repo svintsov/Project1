@@ -5,6 +5,7 @@ import com.company.model.entity.Order;
 import com.company.model.entity.trip.SimpleTripFactory;
 import com.company.model.entity.trip.Trip;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class JDBCTripDao implements TripDao {
     this.connection = connection;
   }
 
-  private Trip extractFromResultSet(ResultSet rs) throws Exception{
+  private Trip extractFromResultSet(ResultSet rs) throws Exception {
     SimpleTripFactory factory = new SimpleTripFactory();
     Order order = JDBCOrderDao.extractFromResultSet(rs);
 
@@ -35,16 +36,30 @@ public class JDBCTripDao implements TripDao {
 
   @Override
   public Trip findById(int id) {
-    return null;
+    List<Trip> resultList = new ArrayList<>();
+    try (PreparedStatement ps = connection.prepareStatement(
+        "select * from trips left join orders using(idtrips) where trips.idtrips = ?")) {
+      ps.setInt(1, id);
+      ResultSet rs = ps.executeQuery();
+      while (rs.next()) {
+        Trip result = extractFromResultSet(rs);
+
+        resultList.add(result);
+      }
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+    return resultList.isEmpty() ? null : resultList.get(0);
   }
+
 
   @Override
   public List<Trip> findAll() {
     List<Trip> resultList = new ArrayList<>();
-    try (Statement ps = connection.createStatement()){
+    try (Statement ps = connection.createStatement()) {
       ResultSet rs = ps.executeQuery(
           "select * from trips left join orders using(idtrips)");
-      while ( rs.next() ){
+      while (rs.next()) {
         Trip result = extractFromResultSet(rs);
 
         resultList.add(result);

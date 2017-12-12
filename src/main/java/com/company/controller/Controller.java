@@ -15,15 +15,15 @@ public class Controller {
   public void processUser() {
     InputControlHolder inputControlHolder = new InputControlHolder(view);
     inputControlHolder.getLanguageControl().onButtonPressed(
-        getInput(InputLanguageControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_SELECT_LANG));
+        getOptionsInput(InputLanguageControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_SELECT_LANG));
     while (true) {
       inputControlHolder.getMainControl().onInputPressed(
-          getInput(InputMainControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_MAIN_OPTIONS));
+          getOptionsInput(InputMainControl.NUMBER_OF_COMMANDS, BundleKeys.INPUT_MAIN_OPTIONS));
     }
 
   }
 
-  int getInput(int commandsCounter, String inputMessage) {
+  int getOptionsInput(int commandsCounter, String inputMessage) {
     Scanner scanner = new Scanner(System.in);
     int choice;
     do {
@@ -33,7 +33,7 @@ public class Controller {
   }
 
 
-  String inputStringFromScanner(Scanner scanner, String inputMessage, View view) {
+  public static String inputStringFromScanner(Scanner scanner, String inputMessage, View view) {
     view.printMessage(inputMessage);
     while (!scanner.hasNextLine()) {
       view.printMessage("Incorrect! Try again.\n");
@@ -43,7 +43,7 @@ public class Controller {
     return scanner.nextLine();
   }
 
-  int inputIntFromScanner(Scanner scanner, String inputMessage, View view) {
+  public static int inputIntFromScanner(Scanner scanner, String inputMessage, View view) {
     view.printMessage(inputMessage);
     while (!scanner.hasNextInt()) {
       view.printMessage("Incorrect! Try again.\n");
